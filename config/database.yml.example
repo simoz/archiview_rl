@@ -1,0 +1,22 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  max_connections: <%= ENV.fetch("RAILS_MAX_THREADS", 5) %>
+
+# Stessa connessione locale di archimate; i task Rails non gestiscono questo database.
+development:
+  <<: *default
+  database: archimate_development
+  database_tasks: false
+
+# Il database di test e separato e scrivibile dall'utente locale.
+test:
+  <<: *default
+  database: <%= ENV.fetch("ARCHIVIEW_RL_TEST_DATABASE", "archiview_rl_test") %>
+
+production:
+  <<: *default
+  database: <%= ENV.fetch("ARCHIMATE_DATABASE", "archimate_production") %>
+  username: <%= ENV.fetch("ARCHIVIEW_RL_DATABASE_USERNAME", "archiview_rl") %>
+  password: <%= ENV["ARCHIVIEW_RL_DATABASE_PASSWORD"] %>
+  database_tasks: false

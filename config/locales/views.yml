@@ -1,0 +1,28 @@
+it:
+  site:
+    name: "Archiview RL"
+  locales:
+    it: "Italiano"
+    en: "English"
+  layouts:
+    application:
+      skip_to_content: "Vai al contenuto"
+      language: "Lingua"
+  home:
+    index:
+      title: "Archiview RL"
+      intro: "Il sito è in preparazione."
+en:
+  site:
+    name: "Archiview RL"
+  locales:
+    it: "Italiano"
+    en: "English"
+  layouts:
+    application:
+      skip_to_content: "Skip to content"
+      language: "Language"
+  home:
+    index:
+      title: "Archiview RL"
+      intro: "This site is being prepared."

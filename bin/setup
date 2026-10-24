@@ -1,0 +1,13 @@
+#!/usr/bin/env ruby
+require "fileutils"
+
+FileUtils.chdir File.expand_path("..", __dir__) do
+  system("bundle check") || system("bundle install", exception: true)
+  FileUtils.cp "config/database.yml.example", "config/database.yml" unless File.exist?("config/database.yml")
+
+  system "bin/rails archimate:schema", exception: true
+  system "bin/rails db:test:prepare", exception: true
+  system "bin/rails dartsass:build", exception: true
+
+  exec "bin/dev" unless ARGV.include?("--skip-server")
+end

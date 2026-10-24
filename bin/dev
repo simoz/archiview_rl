@@ -1,0 +1,3 @@
+#!/usr/bin/env sh
+export PORT="${PORT:-3002}"
+exec bundle exec foreman start -f Procfile.dev "$@"
