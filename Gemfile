@@ -3,7 +3,7 @@ source "https://rubygems.org"
 ruby "3.4.8"
 
 gem "rails", "~> 8.1.4"
-gem "pg", "~> 1.1"
+gem "pg", "~> 1.7.0"
 gem "puma", ">= 5.0"
 gem "propshaft"
 gem "dartsass-rails", "~> 0.5.1"
